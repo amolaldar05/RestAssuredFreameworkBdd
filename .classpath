@@ -36,5 +36,41 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-api/4.28.1/selenium-api-4.28.1.jar" sourcepath="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-api/4.28.1/selenium-api-4.28.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
+			<attribute name="maven.artifactId" value="selenium-api"/>
+			<attribute name="maven.version" value="4.28.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.27.0/selenium-chrome-driver-4.27.0.jar" sourcepath="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/4.27.0/selenium-chrome-driver-4.27.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
+			<attribute name="maven.artifactId" value="selenium-chrome-driver"/>
+			<attribute name="maven.version" value="4.27.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.10.0/selenium-edge-driver-4.10.0.jar" sourcepath="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.10.0/selenium-edge-driver-4.10.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
+			<attribute name="maven.artifactId" value="selenium-edge-driver"/>
+			<attribute name="maven.version" value="4.10.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.27.0/selenium-firefox-driver-4.27.0.jar" sourcepath="/Users/catalinalive/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/4.27.0/selenium-firefox-driver-4.27.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
+			<attribute name="maven.artifactId" value="selenium-firefox-driver"/>
+			<attribute name="maven.version" value="4.27.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
