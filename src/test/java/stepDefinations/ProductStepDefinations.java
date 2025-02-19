@@ -37,10 +37,10 @@ public class ProductStepDefinations extends Utils {
 	private CommonStepDefinations commonStepDefinations = new CommonStepDefinations();
 
 	// WebDriver
-	private static WebDriver driver;
+	public static WebDriver driver;
 
 	// Static variables for persistence
-	private static String productId;
+	public static String productId;
 	public static String token;
 	private static String userId;
 	private static String addedProductName;
@@ -54,7 +54,6 @@ public class ProductStepDefinations extends Utils {
 	 **/
 	@Given("Login to the website using {string} and {string}")
 	public void login_to_the_website_using_and(String userEmail, String userPassword) throws IOException {
-
 		req = given().spec(requestSpecification(ContentType.JSON))
 				.body(testDataBuilder.loginPayload(userEmail, userPassword));
 	}
@@ -129,7 +128,7 @@ public class ProductStepDefinations extends Utils {
 				.multiPart("productImage", new File(IMAGE_PATH));
 
 		the_user_calls_using_http_method("addProductAPI", "POST");
-
+		commonStepDefinations.setResponse(response);
 		commonStepDefinations.api_call_is_successful_with_status_code(201);
 		in_response_body("message", "Product Added Successfully");
 
@@ -153,10 +152,10 @@ public class ProductStepDefinations extends Utils {
 
 	/**
 	 * Step: Enter stored user credentials and log in
-	 * @throws InterruptedException 
 	 **/
 	@When("Enter {string} and {string} in the respective fields and click on login")
-	public void enter_and_in_the_respective_fields_and_click_on_login(String email, String password) throws InterruptedException {
+	public void enter_and_in_the_respective_fields_and_click_on_login(String email, String password)
+			throws InterruptedException {
 		driver.findElement(By.id("userEmail")).sendKeys(email);
 		driver.findElement(By.id("userPassword")).sendKeys(password);
 		driver.findElement(By.id("login")).click();
@@ -169,7 +168,6 @@ public class ProductStepDefinations extends Utils {
 	@Then("User is logged in successfully")
 	public void user_is_logged_in_successfully() {
 		assertEquals("https://rahulshettyacademy.com/client/dashboard/dash", driver.getCurrentUrl());
-		driver.quit();
 	}
 
 	/**
@@ -178,31 +176,50 @@ public class ProductStepDefinations extends Utils {
 	@Given("Fetch all product names listed on the website")
 	public void fetch_all_product_names_listed_on_the_website() {
 		List<WebElement> productNames = driver.findElements(By.cssSelector("#products h5 b"));
+		productNames.stream().map(WebElement::getText).forEach(System.out::println);
 		boolean productFound = productNames.stream()
 				.anyMatch(product -> product.getText().equalsIgnoreCase(addedProductName));
 
 		if (!productFound) {
 			throw new AssertionError("Added product not found on the website!");
 		}
+		driver.quit();
 	}
 
 	/**
 	 * Step: Retrieve the product list from API
 	 **/
-	@When("Retrieve the product list from API")
-	public void retrieve_the_product_list_from_api() throws IOException {
-		response = given().spec(requestSpecification(ContentType.JSON)).header("Authorization", token).when()
-				.get("/api/ecom/product/get-products").then().extract().response();
-	}
+//	@When("Retrieve the product list from API")
+//	public void retrieve_the_product_list_from_api() throws IOException {
+//		response = given().spec(requestSpecification(ContentType.JSON)).header("Authorization", token).when()
+//				.get("/api/ecom/product/get-products").then().extract().response();
+//	}
+//
+//	/**
+//	 * Step: Compare API-added products with website-listed products
+//	 **/
+//	@Then("Compare the API-added products with website-listed products")
+//	public void compare_the_api_added_products_with_website_listed_products() {
+//		List<String> apiProductNames = response.jsonPath().getList("products.name");
+//		boolean productExists = apiProductNames.contains(addedProductName);
+//		assertEquals("Product added via API is not found!", true, productExists);
+//	}
 
 	/**
-	 * Step: Compare API-added products with website-listed products
+	 * Step: Delete product using stored productId (Optimized for consistent
+	 * productId usage)
 	 **/
-	@Then("Compare the API-added products with website-listed products")
-	public void compare_the_api_added_products_with_website_listed_products() {
-		List<String> apiProductNames = response.jsonPath().getList("products.name");
-		boolean productExists = apiProductNames.contains(addedProductName);
+	@Given("Delete product Payload")
+	public void delete_product_payload() throws IOException {
+		if (productId == null || productId.isEmpty()) {
+			throw new IllegalStateException("Product ID is missing. Cannot proceed with deletion.");
+		}
 
-		assertEquals("Product added via API is not found!", true, productExists);
+		req = given().spec(requestSpecification(ContentType.JSON)).header("Authorization", token).pathParam("productId",
+				productId);
+
+		the_user_calls_using_http_method("deleteProductAPI", "DELETE");
+		commonStepDefinations.api_call_is_successful_with_status_code(200);
+		in_response_body("message", "Product Deleted Successfully");
 	}
 }
