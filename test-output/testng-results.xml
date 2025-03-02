@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-02T14:19:44 GST" name="Default suite" finished-at="2025-03-02T14:20:16 GST" duration-ms="31671">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumber.Options.NaukariProfileRunner@66982506]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2025-03-02T14:19:44 GST" name="Default test" finished-at="2025-03-02T14:20:16 GST" duration-ms="31671">
+      <class name="cucumber.Options.NaukariProfileRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumber.Options.NaukariProfileRunner@66982506]" started-at="2025-03-02T14:19:44 GST" name="setUpClass" finished-at="2025-03-02T14:19:45 GST" duration-ms="500" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@737edcfa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumber.Options.NaukariProfileRunner@66982506]" started-at="2025-03-02T14:19:45 GST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-02T14:20:16 GST" duration-ms="31094" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update personal details in the profile"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Naukrigulf Login and Profile Update"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Profile name does not match after login. expected [Amol Popat Aldar] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Profile name does not match after login. expected [Amol Popat Aldar] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at stepDefinations.NaukariProfileStepDefinations.user_should_be_successfully_logged_in_as(NaukariProfileStepDefinations.java:31)
+at ✽.User should be successfully logged in as "Amol Popat Aldar"(file:///Users/catalinalive/eclipse-workspace/RestAssuredFramework/src/test/java/features/naukariGulfProfileUpdate.feature:6)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumber.Options.NaukariProfileRunner@66982506]" started-at="2025-03-02T14:19:45 GST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-03-02T14:20:16 GST" duration-ms="31094" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Upload and save updated CV"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Naukrigulf Login and Profile Update"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Profile name does not match after login. expected [Amol Popat Aldar] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Profile name does not match after login. expected [Amol Popat Aldar] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at stepDefinations.NaukariProfileStepDefinations.user_should_be_successfully_logged_in_as(NaukariProfileStepDefinations.java:31)
+at ✽.User should be successfully logged in as "Amol Popat Aldar"(file:///Users/catalinalive/eclipse-workspace/RestAssuredFramework/src/test/java/features/naukariGulfProfileUpdate.feature:6)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumber.Options.NaukariProfileRunner@66982506]" started-at="2025-03-02T14:20:16 GST" name="tearDownClass" finished-at="2025-03-02T14:20:16 GST" duration-ms="35" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- cucumber.Options.NaukariProfileRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
