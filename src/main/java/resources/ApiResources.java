@@ -6,7 +6,8 @@ public enum ApiResources {
 	getPlaceAPI("/maps/api/place/get/json"),
 	deletePlaceAPI("/maps/api/place/delete/json"),
 	logInAPI("/api/ecom/auth/login"),
-	addProductAPI("/api/ecom/product/add-product");
+	addProductAPI("/api/ecom/product/add-product"),
+	deleteProductAPI("/api/ecom/product/delete-product/");
 	
 	private String resource;
 

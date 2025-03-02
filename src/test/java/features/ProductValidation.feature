@@ -35,8 +35,12 @@ Feature: Product Management Validation on Website
      | userEmail        | userPassword |  
      | jivan@gmail.com  | Jivan@9900   |
 
-  @VerifyProducts
-  Scenario: Verify Added Products Are Available on the Website  
-    Given Fetch all product names listed on the website  
-    When Retrieve the product list from API  
-    Then Compare the API-added products with website-listed products 
+ 
+    
+    @DeleteProduct  
+Scenario: delete added place
+Given Delete product Payload 
+When The user calls "deleteProductAPI" using "DELETE" HTTP method 
+Then API call is successful with status code 200 
+And "status" in response body is "OK"
+And "message" in response body "Product Deleted Successfully" 
